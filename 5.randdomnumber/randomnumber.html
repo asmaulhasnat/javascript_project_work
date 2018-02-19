@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>get randomnumber</title>
+<script type="text/javascript">
+	function getrandomnumber(){
+		var max=parseInt(document.getElementById('maxx').value);
+		var min=parseInt(document.getElementById('minn').value);
+		var ran=Math.floor(Math.random()*(max-min+1))+min;
+		
+		document.getElementById('content').innerHTML=ran;
+	}
+</script>
+<style type="text/css">
+.textcontent{
+	margin-top: 5%;
+	min-height: 300px;
+	max-width: 600px;
+	background-color: #ccc;
+	color: #fff;
+	padding: 10px;
+}
+#content{padding: 30px 20px;
+font-size: 32px;
+font-weight: bold;}
+</style>
+
+</head>
+
+<body>
+<center>
+<button onclick="getrandomnumber();">getrand value</button><br>
+max value<input type="text" id="maxx" value="5"><br>min value
+<input type="text" id="minn" value="1">
+<div class="textcontent" >
+	<p id="content"></p>
+</div>
+</center>
+
+</body>
+</html>

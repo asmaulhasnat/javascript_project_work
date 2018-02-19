@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>pohela boishak countdown</title>
+<style type="text/css">
+	table{
+		 border-collapse: collapse;
+		 width: 90% ;text-align:center;
+		 border:2px solid orange;
+		 min-height: 300px;
+		 background-color: #ccc;
+		 color: #fff;
+		 font-size: 32px;
+		 font-weight: bold;
+		 margin-top: 5%;
+
+	}
+	hr{color: orange;}
+</style>
+</head>
+<body>
+<center>
+	
+	<table>
+		<tr>
+			<td colspan="4">pohela boishak count down<hr></td>
+		</tr>
+		<tr><td id="day"></td>
+			<td id="hour"></td>
+			<td id="minutes"></td>
+			<td id="second"></td>
+			
+		</tr>
+		<tr><td>Day</td>
+			<td>hour</td>
+			<td>minutes</td>
+			<td>second</td>
+			
+		</tr>
+	</table>
+</center>
+<script type="text/javascript">
+	function countdown(){
+		var nowdate=new Date();
+		var eventdate=new Date(2017,3,14);
+		var currenttime=nowdate.getTime();
+		var eventtime=eventdate.getTime();
+		var remtime=eventtime-currenttime;
+		var s=Math.floor(remtime/1000);
+		var m=Math.floor(s/60);
+		var h=Math.floor(m/60);
+		var d=Math.floor(h/24);
+		h=h%24;
+		m=m%60;
+		s=s%60;
+		h=(h<10)?'0'+h:h; 
+		m=(m<10)?'0'+m:m; 
+		s=(s<10)?'0'+s:s; 
+		document.getElementById('day').innerText=d;
+		document.getElementById('day').textContent=d;
+		document.getElementById('hour').innerText=h;
+		document.getElementById('hour').textContent=h;
+		document.getElementById('minutes').innerText=m;
+		document.getElementById('minutes').textContent=m;
+		document.getElementById('second').innerText=s;
+		document.getElementById('second').textContent=s;
+		setTimeout(countdown,1000);
+	}
+	countdown();
+</script>
+
+</body>
+</html>

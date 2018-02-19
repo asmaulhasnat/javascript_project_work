@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>custom screen saver</title>
+</head>
+
+<body>
+<script type="text/javascript">
+	var ball=document.createElement('img');
+	document.body.appendChild(ball);
+	ball.src="ball.png";
+	ball.style.position="absolute";
+	ball.style.width="80px";
+	ball.style.left="0px";
+	ball.style.top="0px";
+	var boundx=window.innerWidth;
+	var boundy=window.innerHeight;
+	var speed=10;
+	var X=1;
+	var Y=1;
+	function screensaver(){
+
+		var posx=ball.offsetLeft;
+		var posy=ball.offsetTop;
+		if(posx+ball.offsetWidth>boundx ||posx<0){
+			X*=-1;
+		}
+		if(posy+ball.offsetHeight>boundy || posy<0){
+			Y*=-1;
+		}
+		ball.style.left=ball.x+(speed*X)+"px";
+		ball.style.top=ball.y+(speed*Y)+"px";
+		setTimeout(screensaver, 1);
+	}
+screensaver();
+
+</script>
+</body>
+</html>

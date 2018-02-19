@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>custom image slider</title>
+<style>
+	#container{position: absolute;
+		top: 50%;
+		left: 50%;
+		background: url(resources/mac.png);
+		transform: translateX(-50%) translateY(-50%);
+		width: 799px;
+		height: 609px;
+	}
+	#imagecontainer{
+		width: 720px;
+		height: 410px;
+		margin: 30px 0px 0px 40px;
+		background: #ccc;
+	}
+
+</style>
+</head>
+
+<body>
+<div id="container">
+	<div id="imagecontainer">
+		
+	</div>
+</div>
+<script type="text/javascript">
+	
+	var imagecontainer=document.getElementById('imagecontainer');
+	var image=['Kadapakkam.jpg','Yelagiri.jpg','Yercaud.jpg'];
+	var totalpic=image.length;
+	var currentImage=0;
+	function changeimage(){
+
+		var imagesource="resources/"+image[currentImage];
+		currentImage=(currentImage+1)==totalpic?0:currentImage+1;
+		imagecontainer.innerHTML='<img src="'+imagesource+'">';
+		setTimeout(changeimage,3000);
+	}
+changeimage();
+
+</script>
+</body>
+</html>
+

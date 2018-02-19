@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>animation using keyboard event</title>
+</head>
+
+<body>
+<script type="text/javascript">
+	document.onkeydown=animatekeys;
+	var colors = ['#FF0000', '#00FFFF', '#0000FF', '#0000A0', '#ADD8E6', '#800080', '#FFFF00','#00FF00', '#FF00FF', '#C0C0C0', '#808080', '#000000', '#FFA500', '#A52A2A', '#800000', '#008000', '#808000'];
+	function animatekeys(event) {
+		var keycode=event.keyCode;
+		var c=String.fromCharCode(keycode);
+		var key=document.createElement('div');
+		document.body.appendChild(key);
+		key.style.position="absolute";
+		var randx=Math.floor(Math.random()*window.innerWidth);
+		var randy=Math.floor(Math.random()*window.innerHeight);
+		key.style.left=randx+"px";
+		key.style.top=randy+"px";
+		key.innerHTML=c;
+		var color = colors[Math.floor(Math.random() * colors.length)];
+		key.style.color = color;
+		key.style.transition="all 0.5s linear 0s";
+		key.style.left=key.offsetLeft-30+"px";
+		key.style.top=key.offsetTop-30+"px";
+		key.style.fontSize="100px";
+		key.style.opacity="0";
+		var sound=new Audio();
+		sound.src="resources/keypress.mp3";
+		sound.play();
+
+
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>pohela boishak countdown</title>
+<style type="text/css">
+	.gunshot{position: absolute;}
+</style>
+</head>
+<body>
+<img id="gun" src="resources/gunshot.png" class="gunshot" style="display: none;">
+<script type="text/javascript">
+	
+	window.onclick=gunfire;
+	function gunfire(event){
+		var el=document.getElementById('gun').cloneNode();
+		document.body.appendChild(el);
+		el.style.display="";
+		el.style.left=event.clientX-(el.offsetWidth/2)+"px";
+		el.style.top=event.clientY-(el.offsetHeight/2)+"px";
+		var shotsound=new Audio();
+		shotsound.src="resources/gunsound.mp3";
+		shotsound.play();
+
+
+	}
+</script>
+
+</body>
+</html>
